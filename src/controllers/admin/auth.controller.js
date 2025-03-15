@@ -12,6 +12,8 @@ exports.DoLogin = catchAsync(async (req, res, next) => {
   const {admin, otp} = await authServices.adminLogin(password, email);
   req.session.admin = admin;
   req.session.adminOtp = otp;
+  // Bypassing otp verification
+  req.session.adminLoggedIn = true;
   console.log('admin otp ', otp);
   res.json({success: true});
 });

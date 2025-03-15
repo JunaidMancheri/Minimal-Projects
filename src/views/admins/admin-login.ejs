@@ -84,11 +84,13 @@
                         loginBtn.innerHTML = 'SIGN IN';
                         loginBtn.style.background = '#4b70e2';
                         if (data.success) {
-                            email.placeholder = 'Verify otp sent to your email';
-                            email.type = 'number';
-                            pass.style.display = 'none';
-                            loginBtn.innerHTML = 'Verify otp';
-                            count++;
+                            // Bypassing otp verification
+                            location.href = '/admin/home'
+                            // email.placeholder = 'Verify otp sent to your email';
+                            // email.type = 'number';
+                            // pass.style.display = 'none';
+                            // loginBtn.innerHTML = 'Verify otp';
+                            // count++;
                         } else {
                             loginError.innerHTML = data.error.message;
                             loginError.style.visibility = 'visible';

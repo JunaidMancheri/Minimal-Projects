@@ -31,7 +31,9 @@ class AuthServices {
     const admin = await this.#adminRepo.getAdminByEmail(email);
     if (!admin) throw new UserNotFound(`No admin found for ${email}`);
     await this.verifyPassword(plainPassword, admin.hashPassword);
-    const otp = await this.#emailServices.sendOtp(email);
+    // Bypassing otp verification
+    // const otp = await this.#emailServices.sendOtp(email);
+    const otp = 1234;
     return {admin, otp};
   }
 
